@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check 2</title>
+    <link rel="stylesheet" href="{% static 'nav.css' %}" >
+</head>
+<body>
+    <div class="topnav">
+        <a class="active" href="#home">Home</a>
+        <a href="#news">News</a>
+        <a href="#contact">Contact</a>
+        <a href="#about">About</a>
+      </div>
+      <center>
+        <img src="{% static 'img.png' %}" >
+        <h1>student management system</h1>
+        <h2>DJANGO WEB FRAMEWORK</h2>
+        <hr/>
+        <table border="1" style="width: 200px; height:400px;" class="content-table">
+            <tr class=" one">
+            <a href="{% url 'stinsert'%}">ADD STUDENT RECORD</a>
+                <th>studentid</th>
+                <th>studentname</th>
+                <th>Email</th>
+                <th>Address</th>
+                <th>Mobile</th>
+            </tr>
+            {% for displayst in crudst%}
+            <tr>
+                <td>{{displayst.id}}</td>
+                <td>{{displayst.stname}}</td>
+                <td>{{displayst.stemail}}</td>
+                <td>{{displayst.staddress}}</td>
+                <td>{{displayst.sno}}</td>
+                <td><a href="#">edit</a></td>
+                <td><a href="#">update</a></td>
+
+            </tr>
+            {% endfor %}
+        </table>
+    </center>
+</body>
+</html>
